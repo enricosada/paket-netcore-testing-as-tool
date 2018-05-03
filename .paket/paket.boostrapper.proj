@@ -2,7 +2,8 @@
 
     <PropertyGroup>
         <PaketBootstrapperVersion>[1.2.11-netcore]</PaketBootstrapperVersion>
-        <PaketBootstrapperFeed>e:\github\Paket\src\Paket.Bootstrapper.preview3\bin\Release</PaketBootstrapperFeed>
+        <PaketBootstrapperFeed>https://www.myget.org/F/paket-netcore-as-tool/api/v2</PaketBootstrapperFeed>
+        <!-- <PaketBootstrapperFeed>e:\github\Paket\src\Paket.Bootstrapper.preview3\bin\Release</PaketBootstrapperFeed> -->
         <PaketFeed>https://www.myget.org/F/paket-netcore-as-tool/api/v2</PaketFeed>
         <!-- <PaketFeed>e:\github\Paket\src\Paket.preview3\bin\Release</PaketFeed> -->
         <PaketBootstrapperArgs>1.2.5-netcore -f --prefer-nuget --nuget-source=$(PaketFeed)</PaketBootstrapperArgs>
