@@ -1,0 +1,14 @@
+<Project ToolsVersion="15.0">
+
+    <PropertyGroup>
+        <RepoRoot>$(MSBuildThisFileDirectory.TrimEnd('\\').TrimEnd('/'))</RepoRoot>
+        <BootExePath>e:\github\Paket\src\Paket.Bootstrapper.preview3\bin\Debug\netcoreapp2.1\win10-x64\publish\Paket.Bootstrapper.preview3.exe</BootExePath>
+    </PropertyGroup>
+
+    <Target Name="Restore">
+
+        <Exec Command='$(BootExePath) --help' />
+
+    </Target>
+
+</Project>
