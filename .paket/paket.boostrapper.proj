@@ -1,18 +1,18 @@
 <Project ToolsVersion="15.0">
 
     <PropertyGroup>
-        <PaketBoostrapperVersion>[1.2.3-netcore]</PaketBoostrapperVersion>
+        <PaketBoostrapperVersion>[1.2.4-netcore]</PaketBoostrapperVersion>
 
         <RepoRoot>$(MSBuildThisFileDirectory.TrimEnd('\\').TrimEnd('/'))</RepoRoot>
         <BootNupkgDir>e:\github\Paket\src\Paket.Bootstrapper.preview3\bin\Release</BootNupkgDir>
     </PropertyGroup>
 
     <Target Name="InstallPaketBootstrapper">
-        <Exec Command='dotnet tool install paket.bootstrapper --tool-path "$(MSBuildThisFileDirectory)" --version "$(PaketBoostrapperVersion)" --source-feed "$(BootNupkgDir)"' WorkingDirectory="$(MSBuildThisFileDirectory)" />
+        <Exec Command='dotnet tool install paket.bootstrapper --tool-path "$(RepoRoot)" --version "$(PaketBoostrapperVersion)" --source-feed "$(BootNupkgDir)"' WorkingDirectory="$(MSBuildThisFileDirectory)" />
     </Target>
 
     <Target Name="Restore" DependsOnTargets="InstallPaketBootstrapper">
-        <Exec Command='..\paket-files\paket-bin\paket.bootstrapper -v' WorkingDirectory="$(MSBuildThisFileDirectory)" />
+        <Exec Command='$(MSBuildThisFileDirectory)paket.bootstrapper -v' WorkingDirectory="$(MSBuildThisFileDirectory)" />
     </Target>
 
 </Project>
