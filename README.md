@@ -56,9 +56,13 @@ after that, as usual
 
 `.paket\paket.bootstrapper.exe --help`
 
+# scenario 3, docker
+
+In `Dockerfile`, with multi steps to reuse layers
+
 # KNOW ERRORS
 
-- on mac `Authority/Host could not be parsed.` on `paket.bootstrapper (thx @vaskir)
+- on unix/mac/docker: `Authority/Host could not be parsed.` on `paket.bootstrapper (thx @vaskir)
 
     [Nuget] DownloadVersion...
     Starting download from https:/www.myget.org/F/paket-netcore-as-tool/api/v2/package/Paket/1.2.5-netcore
