@@ -1,0 +1,13 @@
+RESTRICTION: == netstandard2.0
+NUGET
+  remote: https://www.nuget.org/api/v2
+    Argu (5.1)
+      FSharp.Core (>= 4.3.2)
+      System.Configuration.ConfigurationManager (>= 4.4)
+    FSharp.Core (4.3.4)
+    System.Configuration.ConfigurationManager (4.4.1)
+      System.Security.Cryptography.ProtectedData (>= 4.4)
+    System.Security.Cryptography.ProtectedData (4.4)
+GITHUB
+  remote: forki/FsUnit
+    FsUnit.fs (fa4eb37288d355eb855261be6c0b3945fba68432)
