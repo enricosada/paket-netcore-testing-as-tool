@@ -2,6 +2,29 @@
 
 Both `paket` and `paket.bootstrapper` as .NET tool
 
+so can be installed as
+
+- `dotnet tool install paket.bootstrapper --version "[1.2.11-netcore]" --tool-path "mydir"`
+- `dotnet tool install paket --version "[1.2.5-netcore]" --tool-path "mydir2"`
+
+to both command you need to add:
+
+- `--source-feed https://www.myget.org/F/paket-netcore-as-tool/api/v2` because is in myget atm
+
+PRO:
+
+- maintan the `paket.bootstrapper` (download from github, etc) but is not mandatory
+- the `paket.bootstrapper` download the nupkg (from github or nuget feed) and .net core sdk install it from a local dir (so not using nuget client)
+- you can install just `paket` as .net tool, no need for `paket.bootstrapper`
+- native exe in `.paket`, as usual
+
+CONS:
+
+- some dirty in `.paket` dir (the `.store`, `.startupconfig.json`). while the `.json` may go away in favor of a convention (relative path).
+  - we can restore in `paket-files\paket-bin` and symlink/shellscript the exe?
+- no atm `dotnet paket`. this will be another PR for an helper global tool (`dotnet tool install -g`)
+- need .net core sdk. But we can use paket repotool when ready for `paket` .net full too
+
 Behaviour:
 
 - install the bootstrapper as .NET Tool
