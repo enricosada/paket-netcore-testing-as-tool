@@ -55,3 +55,12 @@ To just download the bootstrapper, use
 after that, as usual
 
 `.paket\paket.bootstrapper.exe --help`
+
+# KNOW ERRORS
+
+- on mac `Authority/Host could not be parsed.` on `paket.bootstrapper (thx @vaskir)
+
+    [Nuget] DownloadVersion...
+    Starting download from https:/www.myget.org/F/paket-netcore-as-tool/api/v2/package/Paket/1.2.5-netcore
+    [Nuget] DownloadVersion took 0.01 second(s) and failed with 'Invalid URI: The Authority/Host could not be parsed.'.
+    Invalid URI: The Authority/Host could not be parsed. (Nuget)
