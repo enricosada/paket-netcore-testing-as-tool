@@ -34,7 +34,7 @@ Behaviour:
 
 - [.NET Core Sdk 2.1.300-preview2](https://www.microsoft.com/net/download/dotnet-core/sdk-2.1.300-preview2)
 
-`NOTE` install from zip (safe way), but you need to set `DOTNET_ROOT` env var to the dir of unzipped sdk (bug in `dotnet/cli` for preview)
+`NOTE` install from zip (safe way), but you need to set `DOTNET_ROOT` env var to the dir of unzipped sdk (bug in `dotnet/cli` for preview https://github.com/dotnet/cli/issues/9114 )
 
 # scenario 1, download bootstrapper and paket
 
