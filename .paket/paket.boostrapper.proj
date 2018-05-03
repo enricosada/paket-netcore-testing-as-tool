@@ -1,18 +1,21 @@
 <Project ToolsVersion="15.0">
 
     <PropertyGroup>
-        <PaketBoostrapperVersion>[1.2.4-netcore]</PaketBoostrapperVersion>
+        <PaketBootstrapperVersion>[1.2.11-netcore]</PaketBootstrapperVersion>
+        <PaketBootstrapperFeed>e:\github\Paket\src\Paket.Bootstrapper.preview3\bin\Release</PaketBootstrapperFeed>
+        <PaketFeed>https://www.myget.org/F/paket-netcore-as-tool/api/v2</PaketFeed>
+        <!-- <PaketFeed>e:\github\Paket\src\Paket.preview3\bin\Release</PaketFeed> -->
+        <PaketBootstrapperArgs>1.2.5-netcore -f --prefer-nuget --nuget-source=$(PaketFeed)</PaketBootstrapperArgs>
 
         <RepoRoot>$(MSBuildThisFileDirectory.TrimEnd('\\').TrimEnd('/'))</RepoRoot>
-        <BootNupkgDir>e:\github\Paket\src\Paket.Bootstrapper.preview3\bin\Release</BootNupkgDir>
     </PropertyGroup>
 
     <Target Name="InstallPaketBootstrapper">
-        <Exec Command='dotnet tool install paket.bootstrapper --tool-path "$(RepoRoot)" --version "$(PaketBoostrapperVersion)" --source-feed "$(BootNupkgDir)"' WorkingDirectory="$(MSBuildThisFileDirectory)" />
+        <Exec Command='dotnet tool install paket.bootstrapper --tool-path "$(RepoRoot)" --version "$(PaketBootstrapperVersion)" --source-feed "$(PaketBootstrapperFeed)"' WorkingDirectory="$(MSBuildThisFileDirectory)" />
     </Target>
 
     <Target Name="Restore" DependsOnTargets="InstallPaketBootstrapper">
-        <Exec Command='$(MSBuildThisFileDirectory)paket.bootstrapper -v' WorkingDirectory="$(MSBuildThisFileDirectory)" />
+        <Exec Command='$(MSBuildThisFileDirectory)paket.bootstrapper $(PaketBootstrapperArgs) -v' WorkingDirectory="$(MSBuildThisFileDirectory)" />
     </Target>
 
 </Project>
