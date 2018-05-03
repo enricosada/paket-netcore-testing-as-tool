@@ -7,7 +7,7 @@
 
     <Target Name="Restore">
 
-        <Exec Command='$(BootExePath) -v' />
+        <Exec Command='$(BootExePath) -v' WorkingDirectory="$(MSBuildThisFileDirectory)" />
 
     </Target>
 
