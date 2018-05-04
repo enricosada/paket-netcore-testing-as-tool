@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <PaketBootstrapperVersion>[1.2.14-netcore]</PaketBootstrapperVersion>
-        <PaketVersion>1.2.5-netcore</PaketVersion>
+        <PaketVersion>1.2.7-netcore</PaketVersion>
     </PropertyGroup>
 
     <PropertyGroup>
