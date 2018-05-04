@@ -7,9 +7,12 @@
 
     <PropertyGroup>
         <PaketBootstrapperFeed>https://www.myget.org/F/paket-netcore-as-tool/api/v2</PaketBootstrapperFeed>
-        <!-- <PaketBootstrapperFeed>e:\github\Paket\src\Paket.Bootstrapper.preview3\bin\Release</PaketBootstrapperFeed> -->
         <PaketFeed>https://www.myget.org/F/paket-netcore-as-tool/api/v2</PaketFeed>
-        <!-- <PaketFeed>e:\github\Paket\src\Paket.preview3\bin\Release</PaketFeed> -->
+
+        <PaketBootstrapperFeed Condition=" '$(WIPBootstrapper)' != '' ">e:\github\Paket\src\Paket.Bootstrapper.preview3\bin\Release</PaketBootstrapperFeed>
+        <PaketFeed Condition=" '$(WIPPaket)' != '' ">e:\github\Paket\src\Paket.preview3\bin\Release</PaketFeed>
+        <PaketFeed Condition=" '$(WIPPaketWSL)' != '' ">/mnt/e/github/Paket/src/Paket.preview3/bin/Release</PaketFeed>
+
         <PaketBootstrapperArgs>$(PaketVersion) -f --prefer-nuget --nuget-source=$(PaketFeed)</PaketBootstrapperArgs>
 
         <RepoRoot>$(MSBuildThisFileDirectory.TrimEnd('\\').TrimEnd('/'))</RepoRoot>
