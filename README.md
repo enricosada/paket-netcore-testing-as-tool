@@ -60,11 +60,7 @@ after that, as usual
 
 In `Dockerfile`, with multi steps to reuse layers
 
+
 # KNOW ERRORS
 
-- on unix/mac/docker: `Authority/Host could not be parsed.` on `paket.bootstrapper (thx @vaskir)
-
-    [Nuget] DownloadVersion...
-    Starting download from https:/www.myget.org/F/paket-netcore-as-tool/api/v2/package/Paket/1.2.5-netcore
-    [Nuget] DownloadVersion took 0.01 second(s) and failed with 'Invalid URI: The Authority/Host could not be parsed.'.
-    Invalid URI: The Authority/Host could not be parsed. (Nuget)
+should work docker/win/osx/unix
