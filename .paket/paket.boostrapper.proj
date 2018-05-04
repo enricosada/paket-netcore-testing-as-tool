@@ -1,12 +1,16 @@
 <Project ToolsVersion="15.0">
 
     <PropertyGroup>
-        <PaketBootstrapperVersion>[1.2.11-netcore]</PaketBootstrapperVersion>
+        <PaketBootstrapperVersion>[1.2.14-netcore]</PaketBootstrapperVersion>
+        <PaketVersion>1.2.5-netcore</PaketVersion>
+    </PropertyGroup>
+
+    <PropertyGroup>
         <PaketBootstrapperFeed>https://www.myget.org/F/paket-netcore-as-tool/api/v2</PaketBootstrapperFeed>
         <!-- <PaketBootstrapperFeed>e:\github\Paket\src\Paket.Bootstrapper.preview3\bin\Release</PaketBootstrapperFeed> -->
         <PaketFeed>https://www.myget.org/F/paket-netcore-as-tool/api/v2</PaketFeed>
         <!-- <PaketFeed>e:\github\Paket\src\Paket.preview3\bin\Release</PaketFeed> -->
-        <PaketBootstrapperArgs>1.2.5-netcore -f --prefer-nuget --nuget-source=$(PaketFeed)</PaketBootstrapperArgs>
+        <PaketBootstrapperArgs>$(PaketVersion) -f --prefer-nuget --nuget-source=$(PaketFeed)</PaketBootstrapperArgs>
 
         <RepoRoot>$(MSBuildThisFileDirectory.TrimEnd('\\').TrimEnd('/'))</RepoRoot>
     </PropertyGroup>
