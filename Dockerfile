@@ -12,4 +12,4 @@ COPY paket.lock .
 RUN .paket/paket restore
 
 # run it
-ENTRYPOINT [".paket/paket", "--help"]
+ENTRYPOINT [".paket/paket"]
