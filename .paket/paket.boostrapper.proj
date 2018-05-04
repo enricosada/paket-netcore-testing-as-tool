@@ -16,11 +16,14 @@
     </PropertyGroup>
 
     <Target Name="InstallPaketBootstrapper">
+        <Message Text='Installing paket.bootstrapper' Importance="High"/>
         <Exec Command='dotnet tool install paket.bootstrapper --tool-path "$(RepoRoot)" --version "$(PaketBootstrapperVersion)" --source-feed "$(PaketBootstrapperFeed)"' WorkingDirectory="$(MSBuildThisFileDirectory)" />
     </Target>
 
     <Target Name="Restore" DependsOnTargets="InstallPaketBootstrapper">
+        <Message Text='Running paket.bootstrapper to install paket' Importance="High"/>
         <Exec Command='$(MSBuildThisFileDirectory)paket.bootstrapper $(PaketBootstrapperArgs) -v' WorkingDirectory="$(MSBuildThisFileDirectory)" />
+        <Message Text='Paket ready, check with ".paket/paket ---version"' Importance="High"/>
     </Target>
 
 </Project>
