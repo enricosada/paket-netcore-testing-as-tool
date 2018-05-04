@@ -124,6 +124,7 @@ after that, as usual
 
 # EXPECTED TO WORK
 
+- should work docker/win/osx/unix
 - integration with sdk (with `dotnet build` AFTER paket exist with `dotnet restore .paket`)
 - `.paket/paket` commands
 
@@ -133,7 +134,7 @@ after that, as usual
 
 # KNOW ERRORS
 
-should work docker/win/osx/unix
+- sdk 2.1 doesnt use right packages from `/packages` (see with `dotnet build src/c1 -v n`)
 
 # WIP
 
