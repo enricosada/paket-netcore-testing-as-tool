@@ -60,6 +60,17 @@ after that, as usual
 
 In `Dockerfile`, with multi steps to reuse layers
 
+build the image with
+
+```
+docker build . -t paket-netcore
+```
+
+Run as
+
+```
+docker run paket-netcore --version
+```
 
 # KNOW ERRORS
 
