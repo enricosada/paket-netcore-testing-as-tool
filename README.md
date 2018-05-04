@@ -95,6 +95,11 @@ after that, as usual
 
 `.paket\paket --help`
 
+# EXPECTED TO NOT WORK (WIP)
+
+- `dotnet paket`. is not installed as global command. will do a workaround later. use as before `.paket/paket --version`
+- integration with .net core sdk for building projects. In wip now (maybe win will work as is)
+
 # KNOW ERRORS
 
 should work docker/win/osx/unix
