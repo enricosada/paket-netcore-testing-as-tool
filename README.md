@@ -1,15 +1,25 @@
 # Paket .NET Core
 
-Both `paket` and `paket.bootstrapper` as .NET tool
+Both `paket` and `paket.bootstrapper` as .NET tool, trying to maintain a dev flow similar to current paket v5 (and hopefully minimal maintenance)
 
-so can be installed as
+# Requirements
 
-- `dotnet tool install paket.bootstrapper --version "[1.2.11-netcore]" --tool-path "mydir"`
-- `dotnet tool install paket --version "[1.2.5-netcore]" --tool-path "mydir2"`
+- [.NET Core Sdk 2.1.300-preview2](https://www.microsoft.com/net/download/dotnet-core/sdk-2.1.300-preview2)
 
-to both command you need to add:
+`NOTE` install from zip/binaries (safe way), but you need to set `DOTNET_ROOT` env var to the dir of unzipped sdk (bug in `dotnet/cli` for preview https://github.com/dotnet/cli/issues/9114 )
 
-- `--source-feed https://www.myget.org/F/paket-netcore-as-tool/api/v2` because is in myget atm
+# Try it
+
+See the scenarios below.
+
+The scenario 1 (`dotnet restore .paket`) maintain current flow with `paket.bootstrapper`
+
+As .net tools so each one can be installed separately to specific dir, so can be run as normal native binaries. as
+
+- `dotnet tool install paket.bootstrapper --version "[1.2.14-netcore]" --tool-path "mydir" --source-feed https://www.myget.org/F/paket-netcore-as-tool/api/v2`
+- `dotnet tool install paket --version "[1.2.5-netcore]" --tool-path "mydir2" --source-feed https://www.myget.org/F/paket-netcore-as-tool/api/v2`
+
+`NOTE` to both command you need to add the `--source-feed` because is in myget:
 
 PRO:
 
@@ -30,11 +40,9 @@ Behaviour:
 - install the bootstrapper as .NET Tool
 - run `paket.bootstrapper` but download the nupkg and install `paket` as .NET tool
 
-# Requirements
+# Scenarios
 
-- [.NET Core Sdk 2.1.300-preview2](https://www.microsoft.com/net/download/dotnet-core/sdk-2.1.300-preview2)
-
-`NOTE` install from zip (safe way), but you need to set `DOTNET_ROOT` env var to the dir of unzipped sdk (bug in `dotnet/cli` for preview https://github.com/dotnet/cli/issues/9114 )
+Before each scenario do a `git clean -xdf`
 
 # scenario 1, download bootstrapper and paket
 
@@ -44,7 +52,12 @@ Install the boostrapper and restore `paket` with
 
 after that, as usual
 
-`.paket\paket.exe --help`
+`.paket\paket --help`
+
+or
+
+`.paket\paket restore`
+
 
 # scenario 2, just downlaod the bootstrapper
 
@@ -72,6 +85,19 @@ Run as
 docker run paket-netcore --version
 ```
 
+# scenario 4, just paket
+
+To just download the `paket` in `.paket` dir, use
+
+`dotnet tool install paket --version "[1.2.5-netcore]" --tool-path ".paket" --source-feed https://www.myget.org/F/paket-netcore-as-tool/api/v2`
+
+after that, as usual
+
+`.paket\paket --help`
+
 # KNOW ERRORS
 
 should work docker/win/osx/unix
+
+- using the `dotnet build` shouldnt yet work. is a wip :D
+
