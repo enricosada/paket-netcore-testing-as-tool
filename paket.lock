@@ -5,9 +5,14 @@ NUGET
       FSharp.Core (>= 4.3.2)
       System.Configuration.ConfigurationManager (>= 4.4)
     FSharp.Core (4.3.4)
+    Suave (2.4)
+      FSharp.Core (>= 4.0 < 5.0)
     System.Configuration.ConfigurationManager (4.4.1)
       System.Security.Cryptography.ProtectedData (>= 4.4)
     System.Security.Cryptography.ProtectedData (4.4)
+
+GROUP Build
+
 GITHUB
   remote: forki/FsUnit
     FsUnit.fs (fa4eb37288d355eb855261be6c0b3945fba68432)
