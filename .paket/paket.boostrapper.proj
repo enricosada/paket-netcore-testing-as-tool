@@ -23,7 +23,7 @@
     <Target Name="Restore" DependsOnTargets="InstallPaketBootstrapper">
         <Message Text='Running paket.bootstrapper to install paket' Importance="High"/>
         <Exec Command='$(MSBuildThisFileDirectory)paket.bootstrapper $(PaketBootstrapperArgs) -v' WorkingDirectory="$(MSBuildThisFileDirectory)" />
-        <Message Text='Paket ready, check with ".paket/paket ---version"' Importance="High"/>
+        <Message Text='Paket ready, check with ".paket/paket --version"' Importance="High"/>
     </Target>
 
 </Project>
