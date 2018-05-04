@@ -2,3 +2,5 @@
 /paket-files/
 /.paket
 !/.paket/paket.boostrapper.proj
+bin
+obj
