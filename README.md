@@ -69,23 +69,50 @@ after that, as usual
 
 `.paket\paket.bootstrapper.exe --help`
 
-# scenario 3, docker
+# scenario 3, integration with sdk
 
-In `Dockerfile`, with multi steps to reuse layers
+After the bootstrapping
+
+```
+dotnet restore .paket
+```
+
+NOTE this will update the `.paket/Paket.Restore.target` who should anyway be committed in repo, as usual
+
+normal command like the following should work
+
+```
+dotnet run -p src/c1
+```
+
+or for a suave app
+
+```
+dotnet run -p src/c1 -- --port 8083
+```
+# scenario 4, docker
+
+In `Dockerfile`, with multi steps to reuse layers to build a smaller `alpine`+`.net core runtime`
 
 build the image with
 
 ```
-docker build . -t paket-netcore
+docker build . -t paket-netcore-app
 ```
 
-Run as
+Run just the console app
 
 ```
-docker run paket-netcore --version
+docker run paket-netcore-app
 ```
 
-# scenario 4, just paket
+Run suave webapp (after that is avaiable at http://localhost:8083/ )
+
+```
+docker run -p 8083:8083 paket-netcore-app --port 8083
+```
+
+# scenario 5, just paket
 
 To just download the `paket` in `.paket` dir, use
 
@@ -95,14 +122,20 @@ after that, as usual
 
 `.paket\paket --help`
 
+# EXPECTED TO WORK
+
+- integration with sdk (with `dotnet build` AFTER paket exist with `dotnet restore .paket`)
+- `.paket/paket` commands
+
 # EXPECTED TO NOT WORK (WIP)
 
-- `dotnet paket`. is not installed as global command. will do a workaround later. use as before `.paket/paket --version`
-- integration with .net core sdk for building projects. In wip now (maybe win will work as is)
+- `dotnet paket`. is not installed as global command. will do a workaround later. For now, use as before `.paket/paket --version`
 
 # KNOW ERRORS
 
 should work docker/win/osx/unix
 
-- using the `dotnet build` shouldnt yet work. is a wip :D
+# WIP
 
+- remove the need for `dotnet restore .paket` after a fresh clone, so just `dotnet build` will do
+- repeteable `dotnet restore .paket`
