@@ -1,8 +1,8 @@
 /packages/
 /paket-files/
-/.paket
-!/.paket/paket.bootstrapper.proj
-!/.paket/paket.bootstrapper.exe.config
+/.paket/*
+!/.paket/*.proj
+!/.paket/*.exe.config
 !/.paket/Paket.Restore.targets
 bin
 obj
