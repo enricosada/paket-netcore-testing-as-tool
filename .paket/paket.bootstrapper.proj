@@ -14,7 +14,7 @@
 
         <RepoRoot>$(MSBuildThisFileDirectory.TrimEnd('\\').TrimEnd('/'))</RepoRoot>
 
-        <PaketBootstrapperArgs>-f --as-tool --output-dir=$(RepoRoot) --nuget-source=$(PaketFeed)</PaketBootstrapperArgs>
+        <PaketBootstrapperArgs>--as-tool --output-dir=$(RepoRoot) -f --nuget-source=$(PaketFeed)</PaketBootstrapperArgs>
         <PaketBootstrapperArgs>$(PaketBootstrapperArgs) --prefer-nuget</PaketBootstrapperArgs>
 
         <PaketBootstrapperExe>$(RepoRoot)\paket.bootstrapper.exe</PaketBootstrapperExe>
@@ -24,17 +24,17 @@
 
     <Target Name="InstallPaketBootstrapper" Condition="Exists('$(PaketBootstrapperExe)') == false">
         <Message Text='Installing paket.bootstrapper' Importance="High"/>
-        <Exec Command='dotnet tool install paket.bootstrapper --tool-path "$(RepoRoot)" --version "$(PaketBootstrapperVersion)" --add-source "$(PaketBootstrapperFeed)"' WorkingDirectory="$(MSBuildThisFileDirectory)" />
+        <Exec Command='dotnet tool install paket.bootstrapper --tool-path "$(RepoRoot)" --version "$(PaketBootstrapperVersion)" --add-source "$(PaketBootstrapperFeed)"' WorkingDirectory="$(RepoRoot)" />
     </Target>
 
     <Target Name="InstallPaket" DependsOnTargets="InstallPaketBootstrapper" Condition="Exists('$(PaketExe)') == false">
         <Message Text='Running paket.bootstrapper to install paket' Importance="High"/>
-        <Exec Command='$(PaketBootstrapperExe) -v $(PaketBootstrapperArgs)' WorkingDirectory="$(MSBuildThisFileDirectory)" />
+        <Exec Command='$(PaketBootstrapperExe) -v $(PaketBootstrapperArgs)' WorkingDirectory="$(RepoRoot)" />
     </Target>
 
     <Target Name="Restore" DependsOnTargets="InstallPaket">
         <Message Text='Paket ready, checking version:' Importance="High"/>
-        <Exec Command='$(PaketExe) --version' WorkingDirectory="$(MSBuildThisFileDirectory)" />
+        <Exec Command='paket --version' WorkingDirectory="$(RepoRoot)" />
     </Target>
 
 </Project>
