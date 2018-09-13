@@ -32,6 +32,7 @@
         <Message Text='Running paket.bootstrapper to install paket' Importance="High"/>
         <Exec Command='$(PaketBootstrapperExe) -v $(PaketBootstrapperArgs)' WorkingDirectory="$(MSBuildThisFileDirectory)" />
         <Message Text='Paket ready, check with ".paket/paket --version"' Importance="High"/>
+        <Exec Command='$(PaketExe) --version' WorkingDirectory="$(MSBuildThisFileDirectory)" />
     </Target>
 
 </Project>
