@@ -28,10 +28,13 @@
         <Exec Command='dotnet tool install paket.bootstrapper --tool-path "$(RepoRoot)" --version "$(PaketBootstrapperVersion)" --add-source "$(PaketBootstrapperFeed)"' WorkingDirectory="$(MSBuildThisFileDirectory)" />
     </Target>
 
-    <Target Name="Restore" DependsOnTargets="InstallPaketBootstrapper" Condition="Exists('$(PaketExe)') == false">
+    <Target Name="InstallPaket" DependsOnTargets="InstallPaketBootstrapper" Condition="Exists('$(PaketExe)') == false">
         <Message Text='Running paket.bootstrapper to install paket' Importance="High"/>
         <Exec Command='$(PaketBootstrapperExe) -v $(PaketBootstrapperArgs)' WorkingDirectory="$(MSBuildThisFileDirectory)" />
-        <Message Text='Paket ready, check with ".paket/paket --version"' Importance="High"/>
+    </Target>
+
+    <Target Name="Restore" DependsOnTargets="InstallPaket">
+        <Message Text='Paket ready, checking version:' Importance="High"/>
         <Exec Command='$(PaketExe) --version' WorkingDirectory="$(MSBuildThisFileDirectory)" />
     </Target>
 
