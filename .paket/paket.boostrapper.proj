@@ -2,7 +2,6 @@
 
     <PropertyGroup>
         <PaketBootstrapperVersion>[5.179.400]</PaketBootstrapperVersion>
-        <PaketVersion>5.179.400</PaketVersion>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -15,7 +14,7 @@
 
         <RepoRoot>$(MSBuildThisFileDirectory.TrimEnd('\\').TrimEnd('/'))</RepoRoot>
 
-        <PaketBootstrapperArgs>$(PaketVersion) -f --as-tool --output-dir=$(RepoRoot) --nuget-source=$(PaketFeed)</PaketBootstrapperArgs>
+        <PaketBootstrapperArgs>-f --as-tool --output-dir=$(RepoRoot) --nuget-source=$(PaketFeed)</PaketBootstrapperArgs>
         <PaketBootstrapperArgs>$(PaketBootstrapperArgs) --prefer-nuget</PaketBootstrapperArgs>
 
         <PaketBootstrapperExe>$(RepoRoot)\paket.bootstrapper.exe</PaketBootstrapperExe>

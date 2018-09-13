@@ -2,6 +2,7 @@
 /paket-files/
 /.paket
 !/.paket/paket.boostrapper.proj
+!/.paket/paket.boostrapper.exe.config
 !/.paket/Paket.Restore.targets
 bin
 obj
