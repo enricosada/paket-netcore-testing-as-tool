@@ -1,21 +1,25 @@
 <Project ToolsVersion="15.0">
 
     <PropertyGroup>
-        <PaketBootstrapperVersion>[1.2.14-netcore]</PaketBootstrapperVersion>
-        <PaketVersion>1.2.7-netcore</PaketVersion>
+        <PaketBootstrapperVersion>[5.177.400]</PaketBootstrapperVersion>
+        <PaketVersion>5.177.400</PaketVersion>
     </PropertyGroup>
 
     <PropertyGroup>
         <PaketBootstrapperFeed>https://www.myget.org/F/paket-netcore-as-tool/api/v2</PaketBootstrapperFeed>
         <PaketFeed>https://www.myget.org/F/paket-netcore-as-tool/api/v2</PaketFeed>
 
-        <PaketBootstrapperFeed Condition=" '$(WIPBootstrapper)' != '' ">e:\github\Paket\src\Paket.Bootstrapper.preview3\bin\Release</PaketBootstrapperFeed>
-        <PaketFeed Condition=" '$(WIPPaket)' != '' ">e:\github\Paket\src\Paket.preview3\bin\Release</PaketFeed>
-        <PaketFeed Condition=" '$(WIPPaketWSL)' != '' ">/mnt/e/github/Paket/src/Paket.preview3/bin/Release</PaketFeed>
-
-        <PaketBootstrapperArgs>$(PaketVersion) -f --prefer-nuget --nuget-source=$(PaketFeed)</PaketBootstrapperArgs>
+        <PaketBootstrapperFeed Condition=" '$(WIPBootstrapper)' != '' ">e:\github\fsprojects\Paket\temp</PaketBootstrapperFeed>
+        <PaketFeed Condition=" '$(WIPPaket)' != '' ">e:\github\fsprojects\Paket\temp</PaketFeed>
+        <PaketFeed Condition=" '$(WIPPaketWSL)' != '' ">/mnt/e/github/fsprojects/Paket/temp</PaketFeed>
 
         <RepoRoot>$(MSBuildThisFileDirectory.TrimEnd('\\').TrimEnd('/'))</RepoRoot>
+
+        <PaketBootstrapperArgs>$(PaketVersion) -f --as-tool --output-dir=$(RepoRoot) --nuget-source=$(PaketFeed)</PaketBootstrapperArgs>
+
+        <PaketBootstrapperExe>$(RepoRoot)\paket.bootstrapper.exe</PaketBootstrapperExe>
+        <PaketExe>$(RepoRoot)\paket.exe</PaketExe>
+        <!-- TODO add check for unix without extension -->
     </PropertyGroup>
 
     <Target Name="InstallPaketBootstrapper">
@@ -25,7 +29,7 @@
 
     <Target Name="Restore" DependsOnTargets="InstallPaketBootstrapper">
         <Message Text='Running paket.bootstrapper to install paket' Importance="High"/>
-        <Exec Command='$(MSBuildThisFileDirectory)paket.bootstrapper $(PaketBootstrapperArgs) -v' WorkingDirectory="$(MSBuildThisFileDirectory)" />
+        <Exec Command='$(MSBuildThisFileDirectory)paket.bootstrapper -v $(PaketBootstrapperArgs)' WorkingDirectory="$(MSBuildThisFileDirectory)" />
         <Message Text='Paket ready, check with ".paket/paket --version"' Importance="High"/>
     </Target>
 
