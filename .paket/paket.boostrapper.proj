@@ -22,12 +22,12 @@
         <!-- TODO add check for unix without extension -->
     </PropertyGroup>
 
-    <Target Name="InstallPaketBootstrapper">
+    <Target Name="InstallPaketBootstrapper" Condition='Exists("$(PaketBootstrapperExe)") == false'>
         <Message Text='Installing paket.bootstrapper' Importance="High"/>
         <Exec Command='dotnet tool install paket.bootstrapper --tool-path "$(RepoRoot)" --version "$(PaketBootstrapperVersion)" --source-feed "$(PaketBootstrapperFeed)"' WorkingDirectory="$(MSBuildThisFileDirectory)" />
     </Target>
 
-    <Target Name="Restore" DependsOnTargets="InstallPaketBootstrapper">
+    <Target Name="Restore" DependsOnTargets="InstallPaketBootstrapper" Condition='Exists("$(PaketExe)") == false'>
         <Message Text='Running paket.bootstrapper to install paket' Importance="High"/>
         <Exec Command='$(MSBuildThisFileDirectory)paket.bootstrapper -v $(PaketBootstrapperArgs)' WorkingDirectory="$(MSBuildThisFileDirectory)" />
         <Message Text='Paket ready, check with ".paket/paket --version"' Importance="High"/>
