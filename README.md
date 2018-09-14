@@ -4,7 +4,7 @@ Both `paket` and `paket.bootstrapper` as .NET tool, trying to maintain a dev flo
 
 # Requirements
 
-- [.NET Core Sdk 2.1.300-preview2](https://www.microsoft.com/net/download/dotnet-core/sdk-2.1.300-preview2)
+- [.NET Core Sdk 2.1.402]
 
 `NOTE` install from zip/binaries (safe way), but you need to set `DOTNET_ROOT` env var to the dir of unzipped sdk (bug in `dotnet/cli` for preview https://github.com/dotnet/cli/issues/9114 )
 
