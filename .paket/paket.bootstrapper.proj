@@ -22,7 +22,11 @@
 
     <Target Name="InstallPaket" DependsOnTargets="InstallPaketBootstrapper" Condition="Exists('$(PaketExe)') == false">
         <Message Text='Running paket.bootstrapper to install paket' Importance="High"/>
-        <Exec Command='$(PaketBootstrapperExe) -v --as-tool --output-dir=$(RepoRoot)' WorkingDirectory="$(RepoRoot)" />
+        <PropertyGroup>
+            <RunBootstrapperCommand>$(PaketBootstrapperExe) -v --as-tool --output-dir=$(RepoRoot)</RunBootstrapperCommand>
+            <RunBootstrapperCommand Condition=" Exists('$(RepoRoot)\paket.bootstrapper.exe.config') ">$(RunBootstrapperCommand) --config-file=$(RepoRoot)/paket.bootstrapper.exe.config</RunBootstrapperCommand>
+        </PropertyGroup>
+        <Exec Command='$(RunBootstrapperCommand)' WorkingDirectory="$(RepoRoot)" />
     </Target>
 
     <Target Name="Restore" DependsOnTargets="InstallPaket">
