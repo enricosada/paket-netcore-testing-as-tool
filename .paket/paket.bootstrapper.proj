@@ -34,7 +34,7 @@
 
     <Target Name="Restore" DependsOnTargets="InstallPaket">
         <Message Text='Paket ready, checking version:' Importance="High"/>
-        <Exec Command='paket --version' WorkingDirectory="$(RepoRoot)" />
+        <Exec Command='$(PaketExe) --version' WorkingDirectory="$(RepoRoot)" />
     </Target>
 
     <Import Project="$(MSBuildThisFileDirectory)paket.bootstrapper.targets" Condition="Exists('$(MSBuildThisFileDirectory)paket.bootstrapper.targets')" />
