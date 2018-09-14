@@ -1,7 +1,7 @@
 <Project ToolsVersion="15.0">
 
     <PropertyGroup>
-        <PaketBootstrapperVersion>[5.179.401]</PaketBootstrapperVersion>
+        <PaketBootstrapperVersion>5.179.401</PaketBootstrapperVersion>
 
         <!-- <PaketBootstrapperFeed>https://www.myget.org/F/paket-netcore-as-tool/api/v2</PaketBootstrapperFeed> -->
         <!-- <PaketFeed>https://www.myget.org/F/paket-netcore-as-tool/api/v2</PaketFeed> -->

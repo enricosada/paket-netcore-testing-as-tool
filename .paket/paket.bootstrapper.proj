@@ -14,7 +14,7 @@
         <Message Text='Installing paket.bootstrapper' Importance="High"/>
         <PropertyGroup>
             <InstallBootstrapperCommand>dotnet tool install paket.bootstrapper --tool-path "$(RepoRoot)"</InstallBootstrapperCommand>
-            <InstallBootstrapperCommand Condition=" '$(PaketBootstrapperVersion)' != '' ">$(InstallBootstrapperCommand) --version "$(PaketBootstrapperVersion)"</InstallBootstrapperCommand>
+            <InstallBootstrapperCommand Condition=" '$(PaketBootstrapperVersion)' != '' ">$(InstallBootstrapperCommand) --version "[$(PaketBootstrapperVersion)]"</InstallBootstrapperCommand>
             <InstallBootstrapperCommand Condition=" '$(PaketBootstrapperFeed)' != '' ">$(InstallBootstrapperCommand) --add-source "$(PaketBootstrapperFeed)"</InstallBootstrapperCommand>
         </PropertyGroup>
         <Exec Command="$(InstallBootstrapperCommand)" WorkingDirectory="$(RepoRoot)" />
