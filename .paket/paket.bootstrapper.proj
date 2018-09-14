@@ -6,9 +6,9 @@
         <RepoRoot>$(MSBuildThisFileDirectory.TrimEnd('\\').TrimEnd('/'))</RepoRoot>
 
         <PaketBootstrapperExe>$(RepoRoot)\paket.bootstrapper.exe</PaketBootstrapperExe>
-        <PaketBootstrapperExe Condition=" '$(OS)' == 'Windows_NT' ">$(RepoRoot)/paket.bootstrapper</PaketBootstrapperExe>
+        <PaketBootstrapperExe Condition=" '$(OS)' != 'Windows_NT' ">$(RepoRoot)/paket.bootstrapper</PaketBootstrapperExe>
         <PaketExe>$(RepoRoot)\paket.exe</PaketExe>
-        <PaketExe Condition=" '$(OS)' == 'Windows_NT' ">$(RepoRoot)/paket</PaketExe>
+        <PaketExe Condition=" '$(OS)' != 'Windows_NT' ">$(RepoRoot)/paket</PaketExe>
     </PropertyGroup>
 
     <Target Name="InstallPaketBootstrapper" Condition="Exists('$(PaketBootstrapperExe)') == false">
