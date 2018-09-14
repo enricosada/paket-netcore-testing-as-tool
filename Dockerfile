@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:2.1.300-preview2-sdk AS build-env
+FROM microsoft/dotnet:2.1.402-sdk AS build-env
 WORKDIR /app
 
 # bootstrap as separate layer

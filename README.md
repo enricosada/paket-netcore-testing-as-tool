@@ -58,28 +58,9 @@ or
 
 `.paket\paket restore`
 
+# scenario 2, integration with sdk
 
-# scenario 2, just downlaod the bootstrapper
-
-To just download the bootstrapper, use
-
-`dotnet msbuild .paket\paket.boostrapper.proj`
- 
-after that, as usual
-
-`.paket\paket.bootstrapper.exe --help`
-
-# scenario 3, integration with sdk
-
-After the bootstrapping
-
-```
-dotnet restore .paket
-```
-
-NOTE this will update the `.paket/Paket.Restore.target` who should anyway be committed in repo, as usual
-
-normal command like the following should work
+normal command like the following should work, without explicit bootstrapping
 
 ```
 dotnet run -p src/c1
@@ -90,7 +71,8 @@ or for a suave app
 ```
 dotnet run -p src/c1 -- --port 8083
 ```
-# scenario 4, docker
+
+# scenario 3, docker
 
 In `Dockerfile`, with multi steps to reuse layers to build a smaller `alpine`+`.net core runtime`
 
@@ -112,11 +94,11 @@ Run suave webapp (after that is avaiable at http://localhost:8083/ )
 docker run -p 8083:8083 paket-netcore-app --port 8083
 ```
 
-# scenario 5, just paket
+# scenario 4, just paket
 
 To just download the `paket` in `.paket` dir, use
 
-`dotnet tool install paket --version "[1.2.5-netcore]" --tool-path ".paket" --source-feed https://www.myget.org/F/paket-netcore-as-tool/api/v2`
+`dotnet tool install paket --version "[5.179.403]" --tool-path ".paket" --add-feed https://www.myget.org/F/paket-netcore-as-tool/api/v2`
 
 after that, as usual
 
@@ -124,19 +106,11 @@ after that, as usual
 
 # EXPECTED TO WORK
 
-- should work docker/win/osx/unix
-- integration with sdk (with `dotnet build` AFTER paket exist with `dotnet restore .paket`)
+- the `dotnet restore .paket` should work docker/win/osx/unix
+- integration with sdk wihout explicit bootstrap first (just `dotnet build`) on win. fails on unix (just do `dotnet restore .paket` first)
 - `.paket/paket` commands
 
 # EXPECTED TO NOT WORK (WIP)
 
-- `dotnet paket`. is not installed as global command. will do a workaround later. For now, use as before `.paket/paket --version`
-
-# KNOW ERRORS
-
-- sdk 2.1 doesnt use right packages from `/packages` (see with `dotnet build src/c1 -v n`)
-
-# WIP
-
-- remove the need for `dotnet restore .paket` after a fresh clone, so just `dotnet build` will do
-- repeteable `dotnet restore .paket`
+- `dotnet paket`. It's not installed as global command. will do a workaround later. For now, use as before `.paket/paket --version`
+- docker scenario, probably
