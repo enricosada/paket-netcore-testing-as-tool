@@ -3,6 +3,8 @@
 /.paket/*
 !/.paket/*.proj
 !/.paket/*.exe.config
+!/.paket/*.props
+!/.paket/*.targets
 !/.paket/Paket.Restore.targets
 bin
 obj
