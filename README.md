@@ -19,7 +19,7 @@ As .net tools so each one can be installed separately to specific dir, so can be
 - `dotnet tool install paket.bootstrapper --version "[5.179.403]" --tool-path "mydir" --add-source https://www.myget.org/F/paket-netcore-as-tool/api/v2`
 - `dotnet tool install paket --version "[5.179.403]" --tool-path "mydir2" --add-source https://www.myget.org/F/paket-netcore-as-tool/api/v2`
 
-`NOTE` to both command you need to add the `--source-feed` because is in myget:
+`NOTE` to both command you need to add the `--add-source` because is in myget:
 
 PRO:
 
@@ -30,7 +30,7 @@ PRO:
 
 CONS:
 
-- some dirty in `.paket` dir (the `.store`, `.startupconfig.json`). while the `.json` may go away in favor of a convention (relative path).
+- some dirty in `.paket` dir (the `.store`).
   - we can restore in `paket-files\paket-bin` and symlink/shellscript the exe?
 - no atm `dotnet paket`. this will be another PR for an helper global tool (`dotnet tool install -g`)
 - need .net core sdk. But we can use paket repotool when ready for `paket` .net full too
@@ -113,4 +113,3 @@ after that, as usual
 # EXPECTED TO NOT WORK (WIP)
 
 - `dotnet paket`. It's not installed as global command. will do a workaround later. For now, use as before `.paket/paket --version`
-- docker scenario, probably
