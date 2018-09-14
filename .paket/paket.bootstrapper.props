@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <PaketBootstrapperVersion>5.179.403</PaketBootstrapperVersion>
-        <PaketBootstrapperFeed>https://www.myget.org/F/paket-netcore-as-tool/api/v2</PaketBootstrapperFeed>
+        <PaketBootstrapperFeed>https://www.myget.org/F/paket-netcore-as-tool/api/v3/index.json</PaketBootstrapperFeed>
     </PropertyGroup>
 
 </Project>
