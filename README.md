@@ -16,8 +16,8 @@ The scenario 1 (`dotnet restore .paket`) maintain current flow with `paket.boots
 
 As .net tools so each one can be installed separately to specific dir, so can be run as normal native binaries. as
 
-- `dotnet tool install paket.bootstrapper --version "[5.179.403]" --tool-path "mydir" --source-feed https://www.myget.org/F/paket-netcore-as-tool/api/v2`
-- `dotnet tool install paket --version "[5.179.403]" --tool-path "mydir2" --source-feed https://www.myget.org/F/paket-netcore-as-tool/api/v2`
+- `dotnet tool install paket.bootstrapper --version "[5.179.403]" --tool-path "mydir" --add-source https://www.myget.org/F/paket-netcore-as-tool/api/v2`
+- `dotnet tool install paket --version "[5.179.403]" --tool-path "mydir2" --add-source https://www.myget.org/F/paket-netcore-as-tool/api/v2`
 
 `NOTE` to both command you need to add the `--source-feed` because is in myget:
 
@@ -98,7 +98,7 @@ docker run -p 8083:8083 paket-netcore-app --port 8083
 
 To just download the `paket` in `.paket` dir, use
 
-`dotnet tool install paket --version "[5.179.403]" --tool-path ".paket" --add-feed https://www.myget.org/F/paket-netcore-as-tool/api/v2`
+`dotnet tool install paket --version "[5.179.403]" --tool-path ".paket" --add-source https://www.myget.org/F/paket-netcore-as-tool/api/v2`
 
 after that, as usual
 
