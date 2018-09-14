@@ -2,11 +2,7 @@
 
     <PropertyGroup>
         <PaketBootstrapperVersion>5.179.403</PaketBootstrapperVersion>
-
-        <!-- <PaketBootstrapperFeed>https://www.myget.org/F/paket-netcore-as-tool/api/v2</PaketBootstrapperFeed> -->
-        <!-- <PaketFeed>https://www.myget.org/F/paket-netcore-as-tool/api/v2</PaketFeed> -->
-
-        <PaketBootstrapperFeed>e:\github\fsprojects\Paket\temp</PaketBootstrapperFeed>
+        <PaketBootstrapperFeed>https://www.myget.org/F/paket-netcore-as-tool/api/v2</PaketBootstrapperFeed>
     </PropertyGroup>
 
 </Project>
