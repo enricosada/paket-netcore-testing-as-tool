@@ -113,7 +113,6 @@ after that, as usual
 
 # KNOWN BUGS
 
-- `dotnet build` without explicit bootstrap on unix/osx fails (try to run with mono)
 - if there is a system proxy, there is an access error. the code for proxy management is temporary disabled on .net core version (thx @vaskir).
 - reenabling the cache, make bootstrapper fail (the `IgnoreCache` setting).
 
