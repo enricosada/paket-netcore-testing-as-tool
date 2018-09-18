@@ -114,9 +114,9 @@ after that, as usual
 # KNOWN BUGS
 
 - if there is a system proxy, there is an access error. the code for proxy management is temporary disabled on .net core version (thx @vaskir).
-- reenabling the cache, make bootstrapper fail (the `IgnoreCache` setting).
 
 # EXPECTED TO NOT WORK (WIP)
 
 - `dotnet paket`. It's not installed as global command. will do a workaround later. For now, use as before `.paket/paket --version`
 - download from github, need a real version of paket deployed. atm just myget feed are usable (forcenuget or prefernuget)
+- the cache is disabled.
