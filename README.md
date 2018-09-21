@@ -135,7 +135,7 @@ after that, as usual
     !/.paket/*.props
     !/.paket/*.targets
     ````
-- add `.paket/paket.bootstrapper.proj` from  [this repo .paket/paket.bootstrapper.proj](https://github.com/enricosada/paket-netcore-testing-as-tool/blob/master/.paket/paket.bootstrapper.proj)
+- add `.paket/paket.bootstrapper.proj` from  [this repo .paket/paket.bootstrapper.proj](https://raw.githubusercontent.com/enricosada/paket-netcore-testing-as-tool/master/.paket/paket.bootstrapper.proj)
 - because currently it's a prerelease, we need to add these to config the version and feeds
   - add `.paket/paket.bootstrapper.props` from  [this repo .paket/paket.bootstrapper.props](https://github.com/enricosada/paket-netcore-testing-as-tool/blob/master/.paket/paket.bootstrapper.props)
   - add `.paket/paket.bootstrapper.exe.config` from  [this repo .paket/paket.bootstrapper.exe.config](https://github.com/enricosada/paket-netcore-testing-as-tool/blob/master/.paket/paket.bootstrapper.exe.config)
