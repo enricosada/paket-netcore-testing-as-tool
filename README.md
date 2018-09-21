@@ -121,7 +121,7 @@ after that, as usual
 - download from github, need a real version of paket deployed. atm just myget feed are usable (forcenuget or prefernuget)
 - the cache is disabled.
 
-# HOW TO TRY IN YOUR PROJECT
+# HOW TO MIGRATE FROM PAKET .NET
 
 - require .net sdk >= 2.1.401 (best practice is to add a `global.json` in root)
 - delete `.paket/paket.exe`
