@@ -120,3 +120,29 @@ after that, as usual
 - `dotnet paket`. It's not installed as global command. will do a workaround later. For now, use as before `.paket/paket --version`
 - download from github, need a real version of paket deployed. atm just myget feed are usable (forcenuget or prefernuget)
 - the cache is disabled.
+
+# HOW TO TRY IN YOUR PROJECT
+
+- require .net sdk >= 2.1.401 (best practice is to add a `global.json` in root)
+- delete `.paket/paket.exe`
+- delete `.paket/paket.bootstrapper.exe`
+- gitignore temp dir
+
+    ````
+    /.paket/*
+    !/.paket/*.proj
+    !/.paket/*.exe.config
+    !/.paket/*.props
+    !/.paket/*.targets
+    ````
+- add `.paket/paket.bootstrapper.proj` from  [this repo .paket/paket.bootstrapper.proj](https://github.com/enricosada/paket-netcore-testing-as-tool/blob/master/.paket/paket.bootstrapper.proj)
+- because currently it's a prerelease, we need to add these to config the version and feeds
+  - add `.paket/paket.bootstrapper.props` from  [this repo .paket/paket.bootstrapper.props](https://github.com/enricosada/paket-netcore-testing-as-tool/blob/master/.paket/paket.bootstrapper.props)
+  - add `.paket/paket.bootstrapper.exe.config` from  [this repo .paket/paket.bootstrapper.exe.config](https://github.com/enricosada/paket-netcore-testing-as-tool/blob/master/.paket/paket.bootstrapper.exe.config)
+- run `dotnet restore .paket` to bootstrap paket
+- run `.paket/paket restore`. this will update `.paket/Paket.Restore.targets` to latest version
+
+from now **on a clean repo**, like previous scenarios:
+
+- `dotnet build` of project should work
+- you can do `dotnet run .paket` to  explicit bootstrap paket
