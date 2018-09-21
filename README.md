@@ -123,7 +123,7 @@ after that, as usual
 
 # HOW TO MIGRATE FROM PAKET .NET
 
-- require .net sdk >= 2.1.401 (best practice is to add a `global.json` in root)
+- require .net sdk >= 2.1.401 (best practice is to add a [global.json](https://raw.githubusercontent.com/enricosada/paket-netcore-testing-as-tool/master/global.json) in root)
 - delete `.paket/paket.exe`
 - delete `.paket/paket.bootstrapper.exe`
 - gitignore temp dir
